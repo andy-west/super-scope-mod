@@ -1,0 +1,31 @@
+Here are the steps to configure the Raspberry Pi for this mod.
+
+1) Install OS and updates.
+
+BT setup:
+
+2) Add Bluetooth device and pair.
+3) "hcitool scan" to get mac address of the device.
+4) sudo nano /etc/rc.local
+5) Add "sudo rfcomm bind 0 <MAC address> 1" before exit 0. Replace <MAC address> with address of the BT adapter.
+6) Restart.
+7) sudo apt-get install minicom
+8) minicom -D /dev/rfcomm0
+9) CTRL-A X to exit minicom.
+
+Camera setup:
+
+10) sudo raspi-config
+11) Enable camera and finish.
+12) pip install "picamera[array]"
+
+13) pip install imutils
+14) pip install scipy
+
+For the power LED:
+
+15) Enable serial in raspi-config for power LED.
+
+Use this to run super-scope.py on startup:
+
+16) https://raspberrypi.stackexchange.com/a/79667
